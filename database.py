@@ -2,16 +2,16 @@ import pymysql.cursors
 
 # Connect to the database
 connection = pymysql.connect(host='mrbartucz.com',
-                             user='CS485',
-                             password='WinonaState',
-                             db='CS485',
+                             user='nn4263xb',
+                             password='G00d4Gr34t!!!4',
+                             db='nn4263xb_University',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 
 try:
     with connection.cursor() as cursor:
         # Select all Students
-        sql = "SELECT * from Students"
+        sql = "SELECT s.Student_ID, s.First_Name, s.Last_Name, p.Program_Name FROM Students s INNER JOIN Programs p ON s.Major = p.Program_ID"
         
         # execute the SQL command
         cursor.execute(sql)
